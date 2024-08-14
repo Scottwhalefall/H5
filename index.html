@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Style Data Fetcher</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        #message {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        #data-display {
+            font-size: 2.5em;
+            border: 2px solid #00ff00;
+            padding: 20px;
+            width: 80%;
+            max-height: 80vh;
+            overflow-y: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 10px #00ff00;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="message">目前共计捐助公益金</div>
+    <div id="data-display">
+        Loading data...
+    </div>
+
+    <script>
+        let value = 1000000;  // 设置初始值为100万
+
+        setInterval(function() {
+            let incrementFactor = Math.random() * (0.003 - 0.001) + 0.001;  // 随机生成一个增长因子，范围在0.001到0.003之间
+            value += value * incrementFactor;  // 增加值
+            document.getElementById('data-display').innerText = value.toFixed(2) + ' 元';  // 保留两位小数并加上单位元
+        }, 1000);  // 每秒更新一次
+    </script>
+</body>
+</html>
